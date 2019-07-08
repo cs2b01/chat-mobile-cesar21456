@@ -44,11 +44,12 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     public void getUsers(){
-        String url = "http://10.0.2.2:8080/users";
+
         RequestQueue queue = Volley.newRequestQueue(this);
         Map<String, String> params = new HashMap();
         JSONObject parameters = new JSONObject(params);
         final String userId = getIntent().getExtras().get("user_id").toString();
+        String url = "http://10.0.2.2:8080/users/"+getIntent().getExtras().get("user_id").toString();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 url,
